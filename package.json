@@ -24,16 +24,23 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "macbar.dev",
-				"title": "Dev",
-				"icon": "./assets/play.png"
+				"command": "dev",
+				"title": "Dev"
+			},
+			{
+				"command": "build",
+				"title": "Build"
 			}
 		],
 		"menus": {
 			"touchBar": [
 				{
-					"command": "macbar.dev",
-					"group": "editing"
+					"command": "dev",
+					"group": "scripts"
+				},
+				{
+					"command": "build",
+					"group": "scripts"
 				}
 			]
 		}

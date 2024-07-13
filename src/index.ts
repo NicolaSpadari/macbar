@@ -1,14 +1,19 @@
 import { type ExtensionContext, commands, window } from "vscode";
-import { scripts } from "../package.json";
 
-export function activate(context: ExtensionContext) {
-	window.showInformationMessage(JSON.stringify(scripts));
+export const activate = async (context: ExtensionContext) => {
+	try {
+		const packageJson = await import(`../package.json`);
 
-	context.subscriptions.push(commands.registerCommand("macbar.dev", () => {
-		const terminal = window.createTerminal(`Dev`);
-		terminal.show();
-		terminal.sendText("nr dev");
-	}));
-}
+		packageJson.contributes.commands.forEach((command) => {
+			context.subscriptions.push(commands.registerCommand(command.command, () => {
+				const terminal = window.createTerminal(command.title);
+				terminal.show();
+				terminal.sendText(packageJson.scripts[command.command]);
+			}));
+		});
+	} catch (err) {
+		window.showErrorMessage("Cannot find package.json", String(err));
+	}
+};
 
-export function deactivate() {}
+export const deactivate = () => {};
