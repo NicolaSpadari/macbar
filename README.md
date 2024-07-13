@@ -3,7 +3,7 @@
 <p align="center">
 	<img src="res/icon.png" width="150" />
 </p>
-<p align="center">Put your node scripts in the Macbook touchbar</p>
+<p align="center">Put your npm scripts in the Macbook touchbar</p>
 
 ## About
 
@@ -12,6 +12,8 @@ VSCode has support for the Macbook touchbar, but doens't actually do anything us
 With this extension, it will add available scripts from the `package.json` to it when you open a projects that has a package file.
 <br />
 The only catch is that commands have to be predefined in the manifest of the extension, so it cannot be as dynamic as I wish. The solution is list a possible set of scripts and if your package has them, conditionally show the button that runs the script.
+<br />
+Package manager is handled by [@antfu/ni](https://github.com/antfu/ni)
 
 ## Build your own:
 
@@ -63,7 +65,9 @@ Edit the list of scripts:
 // ...
 ```
 
-`shortTitle` here is used as a field for the command itself
+Notes:
+- `shortTitle` here is used as a field for the command itself
+- `macbar.<task>` **must** match the script name (eg: "dev")
 
 Build the extension:
 ```sh
