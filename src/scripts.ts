@@ -1,4 +1,4 @@
-import { Uri, workspace } from "vscode";
+import { Uri, window, workspace } from "vscode";
 
 export const getScriptsToCheck = async () => {
 	const workspaceFolders = workspace.workspaceFolders;
@@ -14,8 +14,9 @@ export const getScriptsToCheck = async () => {
 				script,
 				contextKey: `macbar.${script}Exists`
 			}));
-		} catch (err) {
-			console.log(err);
+		} catch (error) {
+			console.log("Error reading scripts:", error);
+			window.showErrorMessage("Error reading scripts:", String(error));
 			return [];
 		}
 	}
