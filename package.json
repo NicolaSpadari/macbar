@@ -7,6 +7,7 @@
 	"packageManager": "pnpm@9.5.0",
 	"description": "Customize your Macbook touchbar",
 	"license": "MIT",
+	"preinstall": "npx only-allow pnpm",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/NicolaSpadari/macbar"
