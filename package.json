@@ -101,7 +101,8 @@
 		"generate": "nr build && nr pack",
 		"publish": "vsce publish --no-dependencies",
 		"pack": "vsce package --no-dependencies",
-		"release": "bumpp && nr publish"
+		"release": "bumpp && nr publish",
+		"test": ""
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.22.2",

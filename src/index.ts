@@ -1,5 +1,5 @@
 import { type ExtensionContext, commands, window, workspace } from "vscode";
-import { contributes } from "../package.json";
+import { contributes } from "@@/package.json";
 import { checkPackageJsonCondition } from "./conditions";
 import { getScriptsToCheck } from "./scripts";
 
