@@ -1,8 +1,8 @@
 {
-	"publisher": "nicolaspadari",
+	"publisher": "Nicola Spadari",
 	"name": "macbar",
 	"displayName": "MacBar",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"private": true,
 	"packageManager": "pnpm@9.5.0",
 	"description": "Customize your Macbook touchbar",
@@ -42,6 +42,21 @@
 				"command": "macbar.build",
 				"title": "Build",
 				"shortTitle": "nr build"
+			},
+			{
+				"command": "macbar.generate",
+				"title": "Generate",
+				"shortTitle": "nr generate"
+			},
+			{
+				"command": "macbar.test",
+				"title": "Test",
+				"shortTitle": "nr test"
+			},
+			{
+				"command": "macbar.preview",
+				"title": "Preview",
+				"shortTitle": "nr preview"
 			}
 		],
 		"menus": {
@@ -60,6 +75,21 @@
 					"command": "macbar.build",
 					"group": "scripts",
 					"when": "macbar.buildExists"
+				},
+				{
+					"command": "macbar.generate",
+					"group": "scripts",
+					"when": "macbar.generateExists"
+				},
+				{
+					"command": "macbar.test",
+					"group": "scripts",
+					"when": "macbar.testExists"
+				},
+				{
+					"command": "macbar.preview",
+					"group": "scripts",
+					"when": "macbar.previewExists"
 				}
 			]
 		}

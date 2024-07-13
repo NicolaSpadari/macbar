@@ -12,7 +12,7 @@ export const activate = async (context: ExtensionContext) => {
 		terminal = window.terminals[0];
 	}
 	if (!terminal) {
-		terminal = window.createTerminal("Macbar");
+		terminal = window.createTerminal("MacBar");
 	}
 
 	const scriptsToCheck = await getScriptsToCheck() || [];
