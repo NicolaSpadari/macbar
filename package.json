@@ -20,27 +20,46 @@
 		"vscode": "^1.91.0",
 		"node": "^20.10.0"
 	},
-	"activationEvents": ["onStartupFinished"],
+	"activationEvents": [
+		"onCommand:macbar.lint",
+		"onCommand:macbar.dev",
+		"workspaceContains:package.json",
+		"onStartupFinished"
+	],
 	"contributes": {
 		"commands": [
 			{
-				"command": "dev",
-				"title": "Dev"
+				"command": "macbar.lint",
+				"title": "Lint",
+				"shortTitle": "nr lint"
 			},
 			{
-				"command": "build",
-				"title": "Build"
+				"command": "macbar.dev",
+				"title": "Dev",
+				"shortTitle": "nr dev"
+			},
+			{
+				"command": "macbar.build",
+				"title": "Build",
+				"shortTitle": "nr build"
 			}
 		],
 		"menus": {
 			"touchBar": [
 				{
-					"command": "dev",
-					"group": "scripts"
+					"command": "macbar.lint",
+					"group": "scripts",
+					"when": "macbar.lintExists"
 				},
 				{
-					"command": "build",
-					"group": "scripts"
+					"command": "macbar.dev",
+					"group": "scripts",
+					"when": "macbar.devExists"
+				},
+				{
+					"command": "macbar.build",
+					"group": "scripts",
+					"when": "macbar.buildExists"
 				}
 			]
 		}
@@ -56,6 +75,7 @@
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.22.2",
+		"@antfu/ni": "^0.22.0",
 		"@types/node": "^20.14.10",
 		"@types/vscode": "^1.91.0",
 		"@vscode/vsce": "^2.30.0",
