@@ -1,12 +1,7 @@
 import { type ExtensionContext, commands, window, workspace } from "vscode";
 import { contributes } from "../package.json";
 import { checkPackageJsonCondition } from "./conditions";
-
-const scriptsToCheck = [
-	{ script: "lint", contextKey: "macbar.lintExists" },
-	{ script: "dev", contextKey: "macbar.devExists" },
-	{ script: "build", contextKey: "macbar.buildExists" }
-];
+import { getScriptsToCheck } from "./scripts";
 
 const macbarCommands = contributes.commands;
 
@@ -19,6 +14,8 @@ export const activate = async (context: ExtensionContext) => {
 	if (!terminal) {
 		terminal = window.createTerminal("Macbar");
 	}
+
+	const scriptsToCheck = await getScriptsToCheck() || [];
 
 	macbarCommands.forEach((macbarCommand) => {
 		context.subscriptions.push(commands.registerCommand(macbarCommand.command, () => {
