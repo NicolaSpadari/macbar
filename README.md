@@ -13,7 +13,7 @@ With this extension, it will add available scripts from the `package.json` to it
 <br />
 The only catch is that commands have to be predefined in the manifest of the extension, so it cannot be as dynamic as I wish. The solution is list a possible set of scripts and if your package has them, conditionally show the button that runs the script.
 <br />
-Package manager is handled by [@antfu/ni](https://github.com/antfu/ni)
+Package manager in commands (`nr`) is handled by [@antfu/ni](https://github.com/antfu/ni)
 
 ## Build your own:
 
