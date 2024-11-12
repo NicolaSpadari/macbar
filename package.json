@@ -40,6 +40,11 @@
 				"shortTitle": "nr dev"
 			},
 			{
+				"command": "macbar.devproxy",
+				"title": "Dev Proxy",
+				"shortTitle": "nr dev-proxy"
+			},
+			{
 				"command": "macbar.build",
 				"title": "Build",
 				"shortTitle": "nr build"
@@ -71,6 +76,11 @@
 					"command": "macbar.dev",
 					"group": "scripts",
 					"when": "macbar.devExists"
+				},
+				{
+					"command": "macbar.devproxy",
+					"group": "scripts",
+					"when": "macbar.devProxyExists"
 				},
 				{
 					"command": "macbar.build",
